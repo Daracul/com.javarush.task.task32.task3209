@@ -21,6 +21,7 @@ public class Controller {
     }
 
     public void init(){
+        createNewDocument();
     }
 
     public void exit(){
@@ -71,7 +72,13 @@ public class Controller {
         view.init();
         controller.init();
     }
-    public void createNewDocument(){}
+    public void createNewDocument(){
+        view.selectHtmlTab();
+        resetDocument();
+        view.setTitle("HTML редактор");
+        view.resetUndo();
+        currentFile=null;
+    }
     public void openDocument(){}
     public void saveDocument(){}
     public void saveDocumentAs(){}
