@@ -89,6 +89,26 @@ public class View extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+       String event = e.getActionCommand();
+        if (event.equals("Новый")){
+            controller.createNewDocument();
+
+        }
+        else if (event.equals("Открыть")){
+            controller.openDocument();
+        }
+        else if (event.equals("Сохранить")){
+            controller.saveDocument();
+        }
+        else if (event.equals("Сохранить как...")){
+            controller.saveDocumentAs();
+        }
+        else if (event.equals("Выход")){
+            controller.exit();
+        }
+        else if (event.equals("О программе")){
+            showAbout();
+        }
 
     }
 
@@ -132,7 +152,7 @@ public class View extends JFrame implements ActionListener {
         htmlTextPane.setDocument(controller.getDocument());
     }
     public void showAbout(){
-        JOptionPane.showMessageDialog(this.getContentPane(),"HTML Editor","ShitSoft Corp. beta 0.1",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this.getContentPane(),"ShitSoft Corp. beta 0.1","HTML Editor",JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void selectedTabChanged(){
