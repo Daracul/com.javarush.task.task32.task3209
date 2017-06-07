@@ -126,4 +126,15 @@ public class View extends JFrame implements ActionListener {
         }
         return false;
     }
+    public void selectHtmlTab(){
+        tabbedPane.setSelectedIndex(0);
+        this.resetUndo();
+    }
+
+    public void update(){
+        htmlTextPane.setDocument(controller.getDocument());
+    }
+    public void showAbout(){
+        JOptionPane.showMessageDialog(this.getContentPane(),"HTML Editor","ShitSoft Corp. beta 0.1",JOptionPane.INFORMATION_MESSAGE);
+    }
 }
