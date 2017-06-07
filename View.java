@@ -87,9 +87,6 @@ public class View extends JFrame implements ActionListener {
         controller.exit();
     }
 
-    public void selectedTabChanged(){}
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -136,5 +133,15 @@ public class View extends JFrame implements ActionListener {
     }
     public void showAbout(){
         JOptionPane.showMessageDialog(this.getContentPane(),"HTML Editor","ShitSoft Corp. beta 0.1",JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void selectedTabChanged(){
+        if (tabbedPane.getSelectedIndex()==0){
+            controller.setPlainText(plainTextPane.getText());
+        }
+        else if (tabbedPane.getSelectedIndex()==1){
+            plainTextPane.setText(controller.getPlainText());
+        }
+        this.resetUndo();
     }
 }
